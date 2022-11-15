@@ -1,20 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from '../api/axios';
+import { Movie } from '../types';
 import './Row.scss';
 
 type RowProps = {
   title: string;
   fetchUrl: string;
   isLargeRow?: boolean;
-};
-
-type Movie = {
-  id: string;
-  name: string;
-  title: string;
-  original_name: string;
-  poster_path: string;
-  backdrop_path: string;
 };
 
 export const Row = ({ title, fetchUrl, isLargeRow }: RowProps): JSX.Element => {
