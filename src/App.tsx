@@ -1,10 +1,12 @@
 import { requests } from './api/request';
 import { Row } from './components/Row/Row';
 import './App.css';
+import { Banner } from './components/Banner/Banner';
 
 const App = (): JSX.Element => {
   return (
     <div className="App">
+      <Banner />
       <Row
         title="NETFLIX ORIGUINALS"
         fetchUrl={requests.feachNetflixOriginals}
