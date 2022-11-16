@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from '../api/axios';
-import { Movie } from '../types';
-import './Row.scss';
+import axios from '../../api/axios';
+import { Movie } from '../../types';
+import styles from './Row.module.scss';
 
 type RowProps = {
   title: string;
@@ -26,13 +26,15 @@ export const Row = ({ title, fetchUrl, isLargeRow }: RowProps): JSX.Element => {
   console.log(movies);
 
   return (
-    <div className="Row">
+    <div className={styles.container}>
       <h2>{title}</h2>
-      <div className="Row-posters">
+      <div className={styles.posters}>
         {movies.map((movie) => (
           <img
             key={movie.id}
-            className={`Row-poster ${isLargeRow && 'Row-poster-large'}`}
+            className={`${styles.poster} ${
+              isLargeRow && styles['poster-large']
+            }`}
             src={`${baseUrl}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}

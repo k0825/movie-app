@@ -1,7 +1,8 @@
-import axios from '../api/axios';
+import axios from '../../api/axios';
 import { useEffect, useState } from 'react';
-import { Movie } from '../types';
-import { requests } from '../api/request';
+import { Movie } from '../../types';
+import { requests } from '../../api/request';
+import styles from './Banner.module.scss';
 
 const truncate = (str: string, n: number) => {
   // undefinedを弾く
@@ -10,7 +11,7 @@ const truncate = (str: string, n: number) => {
   }
 };
 
-export const Banner = () => {
+export const Banner = (): JSX.Element => {
   const [movie, setMovie] = useState<Movie>({});
 
   useEffect(() => {
@@ -32,30 +33,30 @@ export const Banner = () => {
 
   return (
     <header
-      className="Banner"
+      className={styles.container}
       style={{
         backgroundSize: 'cover',
         backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
         backgroundPosition: 'center center',
       }}
     >
-      <div className="Banner-contents">
-        <h1 className="Banner-title">
+      <div className={styles.contents}>
+        <h1 className={styles.title}>
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
-        <div className="Banner-buttons">
-          <button className="Banner-button">Play</button>
-          <button className="Banner-button">My List</button>
+        <div>
+          <button className={styles.button}>Play</button>
+          <button className={styles.button}>My List</button>
         </div>
         {movie.overview ? (
-          <h1 className="Banner-description">
+          <h1 className={styles.description}>
             {truncate(movie.overview, 150)}
           </h1>
         ) : (
           <></>
         )}
       </div>
-      <div className="Banner-fadeBottom" />
+      <div className={styles['fade-bottom']} />
     </header>
   );
 };

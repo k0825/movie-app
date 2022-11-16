@@ -1,5 +1,5 @@
 import { requests } from './api/request';
-import { Row } from './components/Row';
+import { Row } from './components/Row/Row';
 import './App.css';
 
 const App = (): JSX.Element => {
