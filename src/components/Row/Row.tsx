@@ -23,8 +23,6 @@ export const Row = ({ title, fetchUrl, isLargeRow }: RowProps): JSX.Element => {
     fetchData();
   }, [fetchUrl]);
 
-  console.log(movies);
-
   return (
     <div className={styles.container}>
       <h2>{title}</h2>

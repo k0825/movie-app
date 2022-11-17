@@ -17,7 +17,6 @@ export const Banner = (): JSX.Element => {
   useEffect(() => {
     const fetchData = async () => {
       const request = await axios.get(requests.feachNetflixOriginals);
-      console.log(request.data.results);
 
       setMovie(
         request.data.results[
@@ -28,8 +27,6 @@ export const Banner = (): JSX.Element => {
     };
     fetchData();
   }, []);
-
-  console.log(movie);
 
   return (
     <header

@@ -2,10 +2,12 @@ import { requests } from './api/request';
 import { Row } from './components/Row/Row';
 import './App.css';
 import { Banner } from './components/Banner/Banner';
+import { Nav } from './components/Nav/Nav';
 
 const App = (): JSX.Element => {
   return (
     <div className="App">
+      <Nav />
       <Banner />
       <Row
         title="NETFLIX ORIGUINALS"
